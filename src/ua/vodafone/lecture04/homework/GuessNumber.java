@@ -16,7 +16,6 @@ public class GuessNumber {
         int maxAttempts = 3;
 
         int randomValue = ThreadLocalRandom.current().nextInt(minValue, maxValue + 1);
-        System.out.println(randomValue);
         System.out.print("Enter the number that the computer guessed in the range from "
                 + minValue + " to " + maxValue + ": ");
         int userValue = readInt(minValue, maxValue);
