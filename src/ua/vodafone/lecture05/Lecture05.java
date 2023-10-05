@@ -3,6 +3,7 @@ package ua.vodafone.lecture05;
 public class Lecture05 {
     public static void main(String[] args) {
         int angleCount = 3;
+        System.out.println("angleCount = " + angleCount);
         ifElseDemo(angleCount);
     }
 
