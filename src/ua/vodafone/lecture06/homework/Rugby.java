@@ -10,52 +10,45 @@ public class Rugby {
 
         int minAge = 18;
         int maxAge = 40;
-        int teamSize = 25;
-        int[] firstTeamPlayersAge = generatePlayersAge(minAge, maxAge, teamSize);
-        int[] secondTeamPlayersAge = generatePlayersAge(minAge, maxAge, teamSize);
+        int[] firstTeamPlayersAge = generatePlayersAge(minAge, maxAge);
+        int[] secondTeamPlayersAge = generatePlayersAge(minAge, maxAge);
 
         System.out.print("Please enter name of the first team: ");
         String firstTeamName = SCANNER.nextLine();
         System.out.print("Please enter name of the second team: ");
         String secondTeamName = SCANNER.nextLine();
-        System.out.println("--------------------------------------------------------------------------");
 
-        outputPlayersAge(firstTeamName, firstTeamPlayersAge, teamSize);
-        calculateAverageAge(teamSize, firstTeamPlayersAge);
         System.out.println("--------------------------------------------------------------------------");
+        outputPlayersAge(firstTeamName, firstTeamPlayersAge);
 
-        outputPlayersAge(secondTeamName, secondTeamPlayersAge, teamSize);
-        calculateAverageAge(teamSize, secondTeamPlayersAge);
+        System.out.println("--------------------------------------------------------------------------");
+        outputPlayersAge(secondTeamName, secondTeamPlayersAge);
     }
 
-    private static void calculateAverageAge(int teamSize, int[] playersAge) {
-        double averageAge = (double) calculateTotalAge(playersAge, teamSize) / teamSize;
-        System.out.println("Average player age: " + Math.round(averageAge) + ")");
-    }
-
-    private static int calculateTotalAge(int[] playersAge, int teamSize) {
+    private static double calculateAverageAge(int[] playersAge) {
         int totalAge = 0;
-        for (int i = 0; i < teamSize; i++) {
-            totalAge = totalAge + playersAge[i];
+        for (int age : playersAge) {
+            totalAge += age;
         }
-        return totalAge;
+        return (double) totalAge / playersAge.length;
     }
 
-    private static void outputPlayersAge(String teamName, int[] playersAge, int teamSize) {
+    private static void outputPlayersAge(String teamName, int[] playersAge) {
         System.out.println("The age of each player from the '" + teamName + "' team: ");
-        for (int i : playersAge) {
-            System.out.print(i + " ");
+        for (int age : playersAge) {
+            System.out.print(age + " ");
         }
         System.out.println();
-        System.out.print("(Total team age: " + calculateTotalAge(playersAge, teamSize) + ", ");
+        System.out.println("The average age of the player is "
+                + Math.round(calculateAverageAge(playersAge)) + " years old.");
     }
 
-    private static int[] generatePlayersAge(int minAge, int maxAge, int teamSize) {
-        int[] teamPlayers = new int[teamSize];
-        for (int i = 0; i < teamSize; i++) {
+    private static int[] generatePlayersAge(int minAge, int maxAge) {
+        int[] playersAge = new int[25];
+        for (int i = 0; i < playersAge.length; i++) {
             int age = ThreadLocalRandom.current().nextInt(minAge, maxAge + 1);
-            teamPlayers[i] = age;
+            playersAge[i] = age;
         }
-        return teamPlayers;
+        return playersAge;
     }
 }
