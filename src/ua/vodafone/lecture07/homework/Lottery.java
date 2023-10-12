@@ -8,23 +8,27 @@ public class Lottery {
         int[] companyNumbers = generateNumbers();
         int[] playerNumbers = generateNumbers();
 
+        System.out.println("(Original)");
+        System.out.println("Company guessed numbers: ");
+        printNumbers(companyNumbers);
+        System.out.println("\nPlayer guessed numbers: ");
+        printNumbers(playerNumbers);
+
         numbersSort(companyNumbers);
         numbersSort(playerNumbers);
 
+        System.out.println("\n\n(Sorted)");
         System.out.println("Company guessed numbers: ");
         printNumbers(companyNumbers);
-        System.out.println();
-        System.out.println("Player guessed numbers: ");
+        System.out.println("\nPlayer guessed numbers: ");
         printNumbers(playerNumbers);
 
-        System.out.println();
-        System.out.println("Number of coincidences = " + compareNumbers(companyNumbers, playerNumbers));
-
+        System.out.println("\n\nNumber of coincidences = " + compareNumbers(companyNumbers, playerNumbers));
     }
 
     private static int compareNumbers(int[] companyNumbers, int[] playerNumbers) {
         int coincidence = 0;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < Math.min(companyNumbers.length, playerNumbers.length); i++) {
             if (companyNumbers[i] == playerNumbers[i]) {
                 coincidence++;
             }
@@ -49,8 +53,8 @@ public class Lottery {
     }
 
     private static void printNumbers(int[] numbers) {
-        for (int i : numbers) {
-            System.out.print(i + " ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
     }
 
