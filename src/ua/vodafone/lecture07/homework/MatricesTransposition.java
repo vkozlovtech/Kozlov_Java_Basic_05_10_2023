@@ -24,10 +24,9 @@ public class MatricesTransposition {
     }
 
     private static int[][] transposeOriginalMatrix(int[][] matrix) {
-        int i = 0;
-        int[][] transposedMatrix = new int[matrix[i].length][matrix.length];
-        for (i = 0; i < transposedMatrix[i].length; i++) {
-            for (int j = 0; j < transposedMatrix.length; j++) {
+        int[][] transposedMatrix = new int[matrix[0].length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
                 transposedMatrix[j][i] = matrix[i][j];
             }
         }
