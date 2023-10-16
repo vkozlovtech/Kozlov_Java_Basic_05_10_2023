@@ -6,6 +6,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class StepArray {
     public static final Scanner SCANNER = new Scanner(System.in);
 
+    public static final int NOT_DEFINED = -2_147_483_648;
+
     public static void main(String[] args) {
 
         System.out.print("Let's create a matrix with rows of different lengths using the following parameters:" +
@@ -22,24 +24,24 @@ public class StepArray {
         sortMatrix(matrix);
         displayMatrix(matrix);
 
-        System.out.println("\nThe sum of all matrix elements: " + displaySum(matrix));
+        System.out.println("\nThe sum of all matrix elements: " + findSum(matrix));
 
-        int[] minElements = fillArray(matrix);
+        int[] minElements = generateArrayWithMinElements(matrix);
         System.out.print("The minimum elements for each row of the matrix: ");
         displayArray(minElements);
 
         int absoluteMin = findMin(minElements);
         System.out.print("\nThe absolute minimum of the matrix: ");
-        displayAbsoluteMin(absoluteMin);
+        printNumber(absoluteMin);
 
         System.out.println("\n\nLet's try to divide each element of the matrix by the absolute minimum:\n");
-        displayDivisionResult(matrix, absoluteMin);
+        divideIfPossible(matrix, absoluteMin);
     }
 
-    private static void displayDivisionResult(int[][] matrix, int absoluteMin) {
+    private static void divideIfPossible(int[][] matrix, int absoluteMin) {
         if (absoluteMin == 0) {
             System.out.println("[error] Absolute minimum = 0, division is not possible!");
-        } else if (absoluteMin == -1) {
+        } else if (absoluteMin == NOT_DEFINED) {
             System.out.println("[error] Absolute minimum = NULL, division is not possible!");
         } else {
             divideMatrix(matrix, absoluteMin);
@@ -55,33 +57,29 @@ public class StepArray {
         }
     }
 
-    private static void displayAbsoluteMin(int absoluteMin) {
-        if (absoluteMin == -1) {
-            System.out.print("NULL");
+    private static void printNumber(int number) {
+        if (number == NOT_DEFINED) {
+            System.out.print("NULL ");
         } else {
-            System.out.print(absoluteMin);
+            System.out.print(number + " ");
         }
     }
 
     private static void displayArray(int[] minElements) {
         System.out.print("[ ");
         for (int element : minElements) {
-            if (element == -1) {
-                System.out.print("NULL ");
-            } else {
-                System.out.print(element + " ");
-            }
+            printNumber(element);
         }
         System.out.print("]");
     }
 
-    private static int[] fillArray(int[][] matrix) {
+    private static int[] generateArrayWithMinElements(int[][] matrix) {
         int[] minElements = new int[matrix.length];
         for (int i = 0; i < minElements.length; i++) {
             if (matrix[i].length != 0) {
                 minElements[i] = findMin(matrix[i]);
             } else {
-                minElements[i] = -1;
+                minElements[i] = NOT_DEFINED;
             }
         }
         return minElements;
@@ -97,7 +95,7 @@ public class StepArray {
         return min;
     }
 
-    private static int displaySum(int[][] matrix) {
+    private static int findSum(int[][] matrix) {
         int sum = 0;
         for (int[] row : matrix) {
             for (int column : row) {
