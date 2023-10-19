@@ -1,27 +1,28 @@
 package ua.vodafone.lecture09.fitnessTracker;
 
 public class User {
-    private String firstName;
-    private String birthDate;
-    private String email;
-    private String phone;
-    private int age;
-    String lastName;
-    String weight;
-    String pressure;
-    String stepsPerDay;
+    private final String firstName;
+    private final String birthDate;
+    private final String email;
+    private final String phone;
+    private String lastName;
+    private double weight;
+    private String pressure;
+    private int stepsPerDay;
+    private final int age;
+    private static final int CURRENT_YEAR = 2023;
 
     public User(String firstName, int day, int month, int year, String email, String phone, String lastName,
-                String weight, String pressure, String stepsPerDay) {
+                double weight, String pressure, int stepsPerDay) {
         this.firstName = firstName;
-        this.birthDate = day + ".0" + month + "." + year;
+        this.birthDate = makeBirthDate(day, month, year);
         this.email = email;
         this.phone = phone;
         this.lastName = lastName;
         this.weight = weight;
         this.pressure = pressure;
         this.stepsPerDay = stepsPerDay;
-        this.age = 2023 - year;
+        this.age = CURRENT_YEAR - year;
     }
 
     public String getFirstName() {
@@ -44,7 +45,7 @@ public class User {
         return lastName;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -52,7 +53,7 @@ public class User {
         return pressure;
     }
 
-    public String getStepsPerDay() {
+    public int getStepsPerDay() {
         return stepsPerDay;
     }
 
@@ -64,7 +65,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -72,7 +73,7 @@ public class User {
         this.pressure = pressure;
     }
 
-    public void setStepsPerDay(String stepsPerDay) {
+    public void setStepsPerDay(int stepsPerDay) {
         this.stepsPerDay = stepsPerDay;
     }
 
@@ -81,5 +82,15 @@ public class User {
         System.out.println("User: " + firstName + " " + lastName + ", " + birthDate + ", " + age +
                 " y.o.\nContact information: " + phone + ", " + email + "\nHealth data: " + weight + " kg, "
                 + pressure + " mmHg, " + stepsPerDay + " steps per day");
+    }
+
+    private String makeBirthDate(int day, int month, int year) {
+        if (day < 10) {
+            return "0" + day + "." + month + "." + year;
+        } else if (month < 10) {
+            return day + ".0" + month + "." + year;
+        } else {
+            return "0" + day + ".0" + month + "." + year;
+        }
     }
 }
