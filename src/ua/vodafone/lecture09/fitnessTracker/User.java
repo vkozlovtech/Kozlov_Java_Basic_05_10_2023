@@ -1,16 +1,16 @@
 package ua.vodafone.lecture09.fitnessTracker;
 
 public class User {
+    private static final int CURRENT_YEAR = 2023;
     private final String firstName;
     private final String birthDate;
     private final String email;
     private final String phone;
+    private final int age;
     private String lastName;
     private double weight;
     private String pressure;
     private int stepsPerDay;
-    private final int age;
-    private static final int CURRENT_YEAR = 2023;
 
     public User(String firstName, int day, int month, int year, String email, String phone, String lastName,
                 double weight, String pressure, int stepsPerDay) {
@@ -85,12 +85,12 @@ public class User {
     }
 
     private String makeBirthDate(int day, int month, int year) {
-        if (day < 10) {
-            return "0" + day + "." + month + "." + year;
+        if (day < 10 && month < 10) {
+            return "0" + day + ".0" + month + "." + year;
         } else if (month < 10) {
             return day + ".0" + month + "." + year;
         } else {
-            return "0" + day + ".0" + month + "." + year;
+            return "0" + day + "." + month + "." + year;
         }
     }
 }
