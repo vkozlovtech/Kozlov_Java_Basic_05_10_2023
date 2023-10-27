@@ -1,7 +1,7 @@
 package ua.vodafone.lecture10;
 
 public class PointRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Point firstPoint = new Point(1, 2);
         Point secondPoint = new Point(3, 4);
         Point thirdPoint = new Point(8, 8);
@@ -18,14 +18,18 @@ public class PointRunner {
         System.out.println("\n-= Point comparison =-\n"
                 + "First point coordinates: " + firstPoint
                 + "\nSecond point coordinates: " + secondPoint
-                + "\n" + Point.comparePoints(firstPoint, secondPoint));
+                + "\nComparison result: " + firstPoint.equals(secondPoint));
 
         Point copiedFirstPoint = new Point(firstPoint);
         System.out.println("\n-= Copy first point via constructor =-\n" +
-                "Copied point coordinates: " + copiedFirstPoint);
+                "Copied point coordinates: " + copiedFirstPoint
+                + "\n[==] = " + (firstPoint == copiedFirstPoint)
+                + "\n[equals] = " + (firstPoint.equals(copiedFirstPoint)));
 
-        Point copiedSecondPoint = Point.clone(secondPoint);
-        System.out.println("\n-= Copy second point via method clone =-\n" +
-                "Copied point coordinates: " + copiedSecondPoint);
+        Point clonedSecondPoint = secondPoint.clone();
+        System.out.println("\n-= Clone second point via method clone() =-\n" +
+                "Cloned point coordinates: " + clonedSecondPoint
+                + "\n[==] = " + (secondPoint == clonedSecondPoint)
+                + "\n[equals] = " + (secondPoint.equals(clonedSecondPoint)));
     }
 }
