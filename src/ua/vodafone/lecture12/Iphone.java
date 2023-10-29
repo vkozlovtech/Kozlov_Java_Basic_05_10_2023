@@ -18,8 +18,8 @@ public class Iphone implements Smartphones, IOs {
     }
 
     @Override
-    public void sms(String text) {
-        System.out.println(vendor + " " + model + " sent sms '" + text + "'.");
+    public void sms(String number, String text) {
+        System.out.println(vendor + " " + model + " sent sms to " + number + " with text '" + text + "'.");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Iphone implements Smartphones, IOs {
         } else if (osVersion < 17) {
             System.out.println("iOS version on " + vendor + " " + model +
                     " is lower than 17. You need to update.");
-        }   else {
+        } else {
             System.out.println("Your " + vendor + " " + model + " has the latest iOS version.");
         }
     }

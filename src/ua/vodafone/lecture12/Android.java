@@ -17,8 +17,8 @@ public class Android implements Smartphones, LinuxOS {
     }
 
     @Override
-    public void sms(String text) {
-        System.out.println(vendor + " " + model + " sent sms '" + text + "'.");
+    public void sms(String number, String text) {
+        System.out.println(vendor + " " + model + " sent sms to " + number + " with text '" + text + "'.");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Android implements Smartphones, LinuxOS {
     public void checkUpdateLinuxOS() {
         if (osVersion < 14) {
             System.out.println("LinuxOS version on " + vendor + " " + model + " is lower than 14. You need to update.");
-        }   else {
+        } else {
             System.out.println("Your " + vendor + " " + model + " has the latest LinuxOS version.");
         }
     }
