@@ -29,6 +29,13 @@ public class PointTest {
     }
 
     @Test
+    public void toOtherBothPointsNull() {
+        Point firstPoint = null;
+        Point secondPoint = null;
+        Assertions.assertThrows(NullPointerException.class, () -> firstPoint.calculateDistanceToOther(secondPoint));
+    }
+
+    @Test
     public void betweenTwoDistanceCalculation() {
         Point firstPoint = new Point(3, 4);
         Point secondPoint = new Point(8, 8);
@@ -47,6 +54,14 @@ public class PointTest {
     @Test
     public void betweenTwoSecondPointNull() {
         Point firstPoint = new Point(3, 4);
+        Point secondPoint = null;
+        double result = Point.calculateDistanceBetweenTwo(firstPoint, secondPoint);
+        Assertions.assertEquals(-1, result);
+    }
+
+    @Test
+    public void betweenTwoBothPointsNull() {
+        Point firstPoint = null;
         Point secondPoint = null;
         double result = Point.calculateDistanceBetweenTwo(firstPoint, secondPoint);
         Assertions.assertEquals(-1, result);
