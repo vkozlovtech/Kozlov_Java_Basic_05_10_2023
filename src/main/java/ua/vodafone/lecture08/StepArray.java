@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture08;
+package ua.vodafone.lecture08;
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;

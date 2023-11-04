@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture09.burgers;
+package ua.vodafone.lecture09.burgers;
 
 public class BurgerMain {
     public static void main(String[] args) {

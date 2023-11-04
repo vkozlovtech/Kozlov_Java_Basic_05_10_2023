@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture11.converters;
+package ua.vodafone.lecture11.converters;
 
 public class KelvinConverter extends Converters {
     private static final double KELVIN_CONSTANT = 273.15;

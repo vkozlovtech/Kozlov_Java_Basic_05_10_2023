@@ -1,7 +1,7 @@
-package main.java.ua.vodafone.lecture11.converterRunner;
+package ua.vodafone.lecture11.converterRunner;
 
-import main.java.ua.vodafone.lecture11.converters.FahrenheitConverter;
-import main.java.ua.vodafone.lecture11.converters.KelvinConverter;
+import ua.vodafone.lecture11.converters.FahrenheitConverter;
+import ua.vodafone.lecture11.converters.KelvinConverter;
 
 public class ConverterRunner {
     public static void main(String[] args) {

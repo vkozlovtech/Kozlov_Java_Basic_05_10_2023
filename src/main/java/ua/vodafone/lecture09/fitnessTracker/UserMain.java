@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture09.fitnessTracker;
+package ua.vodafone.lecture09.fitnessTracker;
 
 public class UserMain {
     public static void main(String[] args) {

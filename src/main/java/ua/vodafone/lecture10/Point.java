@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture10;
+package ua.vodafone.lecture10;
 
 import java.util.Objects;
 

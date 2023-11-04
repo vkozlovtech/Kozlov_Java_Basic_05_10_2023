@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture08;
+package ua.vodafone.lecture08;
 
 public class PersonRunner {
     public static void main(String[] args) {

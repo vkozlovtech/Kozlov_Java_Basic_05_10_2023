@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture11.converters;
+package ua.vodafone.lecture11.converters;
 
 public class FahrenheitConverter extends Converters {
     private static final int FAHRENHEIT_CONSTANT = 32;

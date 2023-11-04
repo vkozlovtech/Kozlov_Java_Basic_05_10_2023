@@ -1,4 +1,4 @@
-package main.java.ua.vodafone.lecture10;
+package ua.vodafone.lecture10;
 
 public class PointRunner {
     public static void main(String[] args) throws CloneNotSupportedException {
