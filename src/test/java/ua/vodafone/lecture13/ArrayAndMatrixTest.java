@@ -108,11 +108,7 @@ public class ArrayAndMatrixTest {
     @Test
     public void matrixWithEmptyRows() {
         // given
-        int[][] matrix = {
-                {},
-                {},
-                {}
-        };
+        int[][] matrix = {{}, {}, {}};
 
         // when
         boolean result = defineIfMatrixIsSquare(matrix);
