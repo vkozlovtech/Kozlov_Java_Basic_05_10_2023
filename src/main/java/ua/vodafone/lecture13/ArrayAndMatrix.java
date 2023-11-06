@@ -13,13 +13,12 @@ public class ArrayAndMatrix {
         int[][] matrix = generateMatrix();
         System.out.println("Matrix:");
         displayMatrix(matrix);
-        System.out.println("Matrix is square = " + defineIfMatrixIsSquare(matrix));
+        System.out.println("Matrix is square = " + isSquare(matrix));
     }
 
-    public static boolean defineIfMatrixIsSquare(int[][] matrix) {
-        if (matrix == null) {
-            return false;
-        } else if (matrix.length == 0) {
+
+    public static boolean isSquare(int[][] matrix) {
+        if (matrix == null || matrix.length == 0) {
             return false;
         }
         for (int[] row : matrix) {

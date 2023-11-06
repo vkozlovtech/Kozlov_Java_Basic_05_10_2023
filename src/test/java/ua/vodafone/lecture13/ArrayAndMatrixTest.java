@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static ua.vodafone.lecture13.ArrayAndMatrix.calculateArrayArithmeticAverage;
-import static ua.vodafone.lecture13.ArrayAndMatrix.defineIfMatrixIsSquare;
+import static ua.vodafone.lecture13.ArrayAndMatrix.isSquare;
 
 public class ArrayAndMatrixTest {
 
@@ -54,7 +54,7 @@ public class ArrayAndMatrixTest {
         };
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertTrue(result);
@@ -69,7 +69,7 @@ public class ArrayAndMatrixTest {
         };
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
@@ -87,7 +87,7 @@ public class ArrayAndMatrixTest {
         };
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
@@ -99,7 +99,7 @@ public class ArrayAndMatrixTest {
         int[][] matrix = {};
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
@@ -111,7 +111,7 @@ public class ArrayAndMatrixTest {
         int[][] matrix = {{}, {}, {}};
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
@@ -127,7 +127,7 @@ public class ArrayAndMatrixTest {
         };
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
@@ -139,7 +139,7 @@ public class ArrayAndMatrixTest {
         int[][] matrix = null;
 
         // when
-        boolean result = defineIfMatrixIsSquare(matrix);
+        boolean result = isSquare(matrix);
 
         // then
         Assertions.assertFalse(result);
