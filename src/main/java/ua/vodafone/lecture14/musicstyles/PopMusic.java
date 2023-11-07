@@ -1,4 +1,4 @@
-package ua.vodafone.lecture14;
+package ua.vodafone.lecture14.musicstyles;
 
 public class PopMusic extends MusicStyles {
 
