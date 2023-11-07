@@ -2,12 +2,11 @@ package ua.vodafone.lecture14.musicstyles;
 
 public class RockMusic extends MusicStyles {
     private final String bandName;
-    private final String country;
     private final String albumName;
 
     public RockMusic(String bandName, String country, String albumName) {
         this.bandName = bandName;
-        this.country = country;
+        MusicStyles.country = country;
         this.albumName = albumName;
     }
 

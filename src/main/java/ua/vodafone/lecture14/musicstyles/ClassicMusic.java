@@ -2,12 +2,11 @@ package ua.vodafone.lecture14.musicstyles;
 
 public class ClassicMusic extends MusicStyles {
     private final String musician;
-    private final String country;
     private final String songName;
 
     public ClassicMusic(String musician, String country, String songName) {
         this.musician = musician;
-        this.country = country;
+        MusicStyles.country = country;
         this.songName = songName;
     }
 

@@ -1,14 +1,12 @@
 package ua.vodafone.lecture14.musicstyles;
 
 public class PopMusic extends MusicStyles {
-
     private final String bandName;
-    private final String country;
     private final String albumName;
 
     public PopMusic(String bandName, String country, String albumName) {
         this.bandName = bandName;
-        this.country = country;
+        MusicStyles.country = country;
         this.albumName = albumName;
     }
 
