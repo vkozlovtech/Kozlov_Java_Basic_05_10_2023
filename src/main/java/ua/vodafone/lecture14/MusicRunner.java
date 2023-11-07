@@ -7,8 +7,8 @@ public class MusicRunner {
                 new RockMusic("Bring Me The Horizon", "Great Britain", "That's the Spirit"),
                 new ClassicMusic("Ludwig van Beethoven", "Germany", "Bagatelle No. 25")
         };
-        for (MusicStyles styles : musicStyles) {
-            styles.playMusic();
+        for (MusicStyles style : musicStyles) {
+            style.playMusic();
         }
     }
 }
