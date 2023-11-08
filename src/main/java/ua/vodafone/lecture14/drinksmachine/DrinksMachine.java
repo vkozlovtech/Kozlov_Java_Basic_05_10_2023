@@ -37,7 +37,7 @@ public class DrinksMachine {
 
     private static void showOrderDetails() {
         System.out.println("\n-= THANK YOU FOR ORDER! ^-^ =-\n\nTotal quantity of drinks: " + Drinks.getCount() +
-                "\nTotal price: " + Drinks.getTotalPrice() + " USD");
+                "\nTotal price: " + (String.format("%.2f", Drinks.getTotalPrice())) + " USD");
     }
 
     private static String receiveAndTransformUserChoice() {
