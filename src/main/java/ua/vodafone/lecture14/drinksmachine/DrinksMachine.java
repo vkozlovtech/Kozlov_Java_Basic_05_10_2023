@@ -14,10 +14,11 @@ public class DrinksMachine {
 
     private static void processOrder(Drinks[] drinks) {
         String userChoice = receiveAndTransformUserChoice();
-        if (Drinks.getCount() == 0 && userChoice.equals("END")) {
+        while (Drinks.getCount() == 0 && "END".equals(userChoice)) {
             System.out.println("[Warning] You have not ordered anything. Please enter name of the drink:");
-            processOrder(drinks);
-        } else if (userChoice.equals("END")) {
+            userChoice = receiveAndTransformUserChoice();
+        }
+        if ("END".equals(userChoice)) {
             showOrderDetails();
         } else {
             for (Drinks drink : drinks) {
