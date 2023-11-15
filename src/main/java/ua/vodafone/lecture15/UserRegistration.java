@@ -7,11 +7,8 @@ public class UserRegistration {
 
     public static void main(String[] args) {
         System.out.println("-= USER REGISTRATION =-");
-        try {
-            registerUser();
-        } finally {
-            System.out.println("\nThank you for using our service!");
-        }
+        registerUser();
+        System.out.println("\nThank you for using our service!");
     }
 
     private static void registerUser() {
@@ -22,7 +19,7 @@ public class UserRegistration {
                 break;
             } catch (WrongLoginException | WrongPasswordException e) {
                 System.out.print(e.getMessage());
-                if (i < 2) {
+                if (i < attempts - 1) {
                     System.out.println("please try again.");
                 } else {
                     System.out.println("allowed number of attempts has been reached.");
