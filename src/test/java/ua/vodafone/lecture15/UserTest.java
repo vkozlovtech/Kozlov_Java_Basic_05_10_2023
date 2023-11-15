@@ -9,23 +9,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class UserTest {
 
     @Test
-    public void successfulRegistration() {
+    public void successfulRegistration() throws WrongLoginException, WrongPasswordException {
         // given
         String login = "Test";
         String password = "Tester1";
         String confirmPassword = "Tester1";
-        boolean noThrown;
 
         // when
-        try {
-            new User(login, password, confirmPassword);
-            noThrown = true;
-        } catch (WrongLoginException | WrongPasswordException e) {
-            noThrown = false;
-        }
-
-        // then
-        Assertions.assertTrue(noThrown);
+        new User(login, password, confirmPassword);
     }
 
     @Test
